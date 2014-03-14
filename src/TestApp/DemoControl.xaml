@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Watermark.TestApp.DemoControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Watermark="clr-namespace:Watermark;assembly=Watermark"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Margin="3">
+        <Grid.Resources>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <CheckBox Grid.Row="0" HorizontalAlignment="Center"
+                  Content="Show watermark"
+                  IsChecked="{Binding Path=IsWatermarkVisible, Mode=TwoWay}"/>
+        <DockPanel Grid.Row="1"
+                   Watermark:Watermark.WatermarkVisibility="{Binding Path=IsWatermarkVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Watermark:Watermark.Watermark>
+                <TextBlock Text="This is a TextBlock watermark" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Watermark:Watermark.Watermark>
+        </DockPanel>
+    </Grid>
+</UserControl>

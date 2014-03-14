@@ -1,0 +1,13 @@
+﻿<Window x:Class="Watermark.TestApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:TestApp="clr-namespace:Watermark.TestApp"
+        Title="Watermark Demo" Height="350" Width="525">
+    <ContentPresenter Content="{Binding}">
+        <ContentPresenter.ContentTemplate>
+            <DataTemplate>
+                <TestApp:DemoControl />
+            </DataTemplate>
+        </ContentPresenter.ContentTemplate>
+    </ContentPresenter>
+</Window>
